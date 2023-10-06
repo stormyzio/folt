@@ -18,5 +18,8 @@
     "firebase": "^10.4.0",
     "mongodb": "^6.1.0"
   },
-  "type": "module"
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
