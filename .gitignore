@@ -1,4 +1,7 @@
+# Ignorer le fichier .gitattributes
 .gitattributes
+
+# Ignorer le fichier .env
 .env
 
-/node_modules
+node_modules/
