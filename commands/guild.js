@@ -27,7 +27,7 @@ export default {
 				{ name: '\u200B', value: '\u200B' },
 				{ name: 'Members', value: String(members.length), inline: true},
 				{ name: 'Bots', value: String(bots.length), inline: true},
-				{ name: 'Administrators', value: String(admins.length + 1), inline: true}, // + 1 = the guild owner
+				{ name: 'Administrators', value: String(admins.length), inline: true},
 				// { name: 'Online users', value: String(onlineUsers.length)} // + 1 = the guild owner
 			)
 			.setFooter(embedFooter());
