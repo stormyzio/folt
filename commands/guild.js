@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle, EmbedBuilder, Collection } from 'discord.js';
-import { embedFooter, usersWithPerm } from '../utils/global.js';
+import { color, embedFooter, usersWithPerm } from '../utils/global.js';
 
 export default {
 	data: new SlashCommandBuilder()
@@ -18,11 +18,10 @@ export default {
 
 		let members = users.filter(user => user.user.bot != true)
 		members = Array.from(members)
-
 		let embed = new EmbedBuilder()
-			.setColor('Orange')
+			.setColor(color())
 			.setTitle('Guild informations')
-			.setThumbnail(interaction.guild.iconURL())
+			.setThumbnail(interaction.guild.iconURL({ size: 1024, extension: 'png' }))
 			.addFields(
 				{ name: 'Guild name', value: interaction.guild.name},
 				{ name: '\u200B', value: '\u200B' },

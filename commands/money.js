@@ -1,8 +1,9 @@
-import { SlashCommandBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle, EmbedBuilder, Collection } from 'discord.js';
+import { SlashCommandBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle, EmbedBuilder, Collection, AttachmentBuilder } from 'discord.js';
 import { embedFooter, usersWithPerm } from '../utils/global.js';
 import { addUser, addUserMoneyGuild } from '../utils/db/addUser.js';
 import { mongoClient } from '../index.js';
 import { BaseCardBuilder } from '../custom-libs/discord-card-canvas/dist/cards/base/base-card.js';
+import { color } from '../utils/global.js';
 
 export default {
 	data: new SlashCommandBuilder()
@@ -43,17 +44,20 @@ export default {
       
     }
 
+    const image = new AttachmentBuilder('../folt-logo.png').setName('image.png')
+
     const card = await new BaseCardBuilder({
-      backgroundColor: { background: '#1b1b1b', waves: '#0ffb81'},
-      mainText: { content: String(money), color: '#0ffb81' },
-      nicknameText: { content: `${targetUser.username}\'s money`, color: 'white' },
+      backgroundColor: { background: '#1b1b1b', waves: color()},
+      mainText: { content: String(money), color: color() },
+      nicknameText: { content: `${targetUser.username.charAt(0).toUpperCase() + targetUser.username.slice(1)}\'s money`, color: 'white' },
       avatarImgURL: `https://cdn.discordapp.com/avatars/${targetUser.id}/${targetUser.avatar}.png`,
       avatarBorderColor: 'white',
-      customLevelCard: true
+      customLevelCard: true,
+      backgroundImgURL: 'https://i.postimg.cc/t4C36wGf/bars.png'
     }).build()
 
     interaction.reply({
-      files: [{ attachment: card.toBuffer(), name: 'canvas.png' }]
+      files: [{ attachment: card.toBuffer(), name: 'card.png' }]
     })
 		
 	},

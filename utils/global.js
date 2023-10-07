@@ -1,5 +1,9 @@
 import { GatewayIntentBits, PermissionFlagsBits } from "discord.js"
 
+export function color() {
+  return '#0ffb81'
+}
+
 export function embedFooter() {
   return {
     text: 'Folt  ·  0.1',
