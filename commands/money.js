@@ -2,7 +2,7 @@ import { SlashCommandBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle, Embe
 import { embedFooter, usersWithPerm } from '../utils/global.js';
 import { addUser, addUserMoneyGuild } from '../utils/db/addUser.js';
 import { mongoClient } from '../index.js';
-import { BaseCardBuilder } from 'discord-card-canvas';
+import { BaseCardBuilder } from '../custom-libs/discord-card-canvas/dist/cards/base/base-card.js';
 
 export default {
 	data: new SlashCommandBuilder()
