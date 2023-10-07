@@ -4,11 +4,11 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { MongoClient, ServerApiVersion } from 'mongodb'
 import dotenv from 'dotenv'
+dotenv.config()
 
 import express from 'express'
-express().get('/', (_, res) => res.send(true) ).listen(3500)
+express().get('/', (_, res) => res.send(true) ).listen(process.env.PORT || 3500)
 
-dotenv.config()
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
