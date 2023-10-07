@@ -2,8 +2,11 @@ import Discord from 'discord.js'
 import colors from 'colors' // eslint-disable-line
 import fs from 'node:fs'
 import path from 'node:path'
-import dotenv from 'dotenv'
 import { MongoClient, ServerApiVersion } from 'mongodb'
+import dotenv from 'dotenv'
+
+import express from 'express'
+express().get('/', (_, res) => res.send(true) ).listen(3500)
 
 dotenv.config()
 

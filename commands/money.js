@@ -28,11 +28,12 @@ export default {
     if(users.length == 0) {
       addUser({
         id: targetUser.id,
-        username: targetUser.username
+        username: targetUser.username,
+        guild: interaction.guild
       })
       money = 0
     } else {
-      money = users[0].money
+      money = users[0].money.find(g => g.guildId === interaction.guild.id).money
     }
 
     let embed = new EmbedBuilder()

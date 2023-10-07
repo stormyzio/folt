@@ -7,7 +7,12 @@ export async function addUser(user) {
   await users.insertOne({
     _id: user.id,
     name: user.username,
-    money: 0
+    money: [
+      user.guild &&{
+        guildId: user.guild.id,
+        money: 0
+      }
+    ]
   }) 
   console.log('Added a new user to the database!')
 }
