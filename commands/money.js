@@ -47,7 +47,7 @@ export default {
       backgroundColor: { background: '#1b1b1b', waves: '#0ffb81'},
       mainText: { content: String(money), color: '#0ffb81' },
       nicknameText: { content: `${targetUser.username}\'s money`, color: 'white' },
-      avatarImgURL: `https://cdn.discordapp.com/avatars/${interaction.user.id}/${interaction.user.avatar}.png`,
+      avatarImgURL: `https://cdn.discordapp.com/avatars/${targetUser.id}/${targetUser.avatar}.png`,
       avatarBorderColor: 'white',
       customLevelCard: true
     }).build()
