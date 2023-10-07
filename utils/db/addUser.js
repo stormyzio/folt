@@ -16,3 +16,12 @@ export async function addUser(user) {
   }) 
   console.log('Added a new user to the database!')
 }
+
+export async function addUserMoneyGuild(userId, guildId) {
+  await mongoClient.connect()
+  const db = mongoClient.db('prod')
+  const users = db.collection('users')
+  await users.updateOne({_id: userId}, {
+    $push: { guildId: guildId, money: 0 }
+  })
+}
